@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Vesper/Character/Stats/CharacterStats.h"
 #include "BattleCharacter.generated.h"
 
 UCLASS()
@@ -14,6 +15,13 @@ class VESPER_API ABattleCharacter : public ACharacter
 	
 	UPROPERTY(VisibleAnywhere, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* SpringArm;
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Stats")
+	FCharacterStats BaseStats;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Stats")
+	FCharacterStats CurrentStats;
 	
 protected:
 	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
