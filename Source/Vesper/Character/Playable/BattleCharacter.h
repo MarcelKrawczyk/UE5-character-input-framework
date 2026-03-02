@@ -5,6 +5,8 @@
 #include "Vesper/Character/Stats/CharacterStats.h"
 #include "BattleCharacter.generated.h"
 
+class UTurnManager;
+
 UCLASS()
 class VESPER_API ABattleCharacter : public ACharacter
 {
@@ -43,4 +45,11 @@ public:
 	
 protected:
 	void FirstSkill();
+
+private:
+	// Cached reference to TurnManager — found once at BeginPlay
+	UPROPERTY()
+	UTurnManager* CachedTurnManager;
+
+	void FindTurnManager();
 };
