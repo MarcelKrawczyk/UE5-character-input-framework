@@ -1,6 +1,7 @@
 #include "Vesper/Character/Playable/BattleCharacter.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
+#include "Vesper/Character/Enemy/EnemyCharacter.h"
 
 ABattleCharacter::ABattleCharacter()
 {
@@ -42,5 +43,10 @@ void ABattleCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 void ABattleCharacter::FirstSkill()
 {
 	
+}
+
+AEnemyCharacter* ABattleCharacter::Target(AEnemyCharacter* Enemy)
+{
+	return Enemy;
 }
 

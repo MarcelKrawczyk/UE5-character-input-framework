@@ -23,6 +23,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Stats")
 	FCharacterStats CurrentStats;
 	
+	UFUNCTION(BlueprintCallable, Category="Targeting")
+	AEnemyCharacter* Target(AEnemyCharacter* Enemy);
+	
 protected:
 	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
 	class UInputMappingContext* InputMapping;
