@@ -47,6 +47,13 @@ void ABattleCharacter::FirstSkill()
 
 AEnemyCharacter* ABattleCharacter::Target(AEnemyCharacter* Enemy)
 {
+	if (!Enemy)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Target() received null enemy"));
+		return nullptr;
+	}
+
 	return Enemy;
 }
+
 
