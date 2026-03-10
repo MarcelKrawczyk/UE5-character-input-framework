@@ -2,6 +2,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
 #include "Vesper/Character/Enemy/EnemyCharacter.h"
+#include "Vesper/Cards/CardBase.h"
 
 ABattleCharacter::ABattleCharacter()
 {
@@ -45,15 +46,12 @@ void ABattleCharacter::FirstSkill()
 	
 }
 
-AEnemyCharacter* ABattleCharacter::Target(AEnemyCharacter* Enemy)
+void ABattleCharacter::SelectCard(UCardBase* Card)
 {
-	if (!Enemy)
+	SelectedCard = Card;
+
+	if (Card)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Target() received null enemy"));
-		return nullptr;
+		UE_LOG(LogTemp, Warning, TEXT("Selected card: %s"), *Card->GetName());
 	}
-
-	return Enemy;
 }
-
-

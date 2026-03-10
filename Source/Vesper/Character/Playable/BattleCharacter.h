@@ -23,8 +23,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Stats")
 	FCharacterStats CurrentStats;
 	
-	UFUNCTION(BlueprintCallable, Category="Targeting")
-	AEnemyCharacter* Target(AEnemyCharacter* Enemy);
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Cards")
+	UCardBase* SelectedCard;
 	
 protected:
 	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
@@ -41,8 +41,10 @@ protected:
 
 public:	
 	virtual void Tick(float DeltaTime) override;
-	
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
+	UFUNCTION(BlueprintCallable)
+	void SelectCard(UCardBase* Card);
 	
 protected:
 	void FirstSkill();
